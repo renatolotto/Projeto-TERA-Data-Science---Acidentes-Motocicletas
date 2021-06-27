@@ -17,3 +17,9 @@ MODELAGEM_acidentes_moto_SP.ipynb
 05_Modeling_CORR.ipynb
 07_app_novo.py
 X_test.csv
+06_Train_pipeline.py
+06_Train_ind.py
+04_Balancing.ipynb
+04_Balancing_test.ipynb
+1.1_Maps_API.ipynb
+2.1_Weather_API.ipynb
