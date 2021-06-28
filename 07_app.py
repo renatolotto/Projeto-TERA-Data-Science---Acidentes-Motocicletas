@@ -53,7 +53,7 @@ def app():#isolar todos os campos gráficos aqui dentro dessa função app
         geocode_result = gmaps.geocode(input_adress)
         lat = geocode_result[0].get('geometry').get('viewport').get('southwest').get('lat')
         lon = geocode_result[0].get('geometry').get('viewport').get('southwest').get('lng')
-        município = geocode_result[0].get('address_components')[3].get('long_name')
+        city = geocode_result[0].get('address_components')[3].get('long_name')
         map_data = pd.DataFrame({'lat': [lat], 'lon': [lon]})
 
         with col1:
@@ -61,7 +61,7 @@ def app():#isolar todos os campos gráficos aqui dentro dessa função app
         with col2:
             st.write('Informações:')
             st.write('Latitude:',round(lat,5),'Longitude:',round(lon,5))
-            st.write('Município: ',município)
+            st.write('Município: ',city)
 
     except:
         pass
@@ -175,7 +175,7 @@ def app():#isolar todos os campos gráficos aqui dentro dessa função app
 
     #CRIANDO DF COM TODOS INPUTS e calculando proba
     try:
-        df = pd.DataFrame({'Município':[município], 'Latitude':[lat], 'Longitude':[lon], 'Condições Climáticas':[condition_por], 'Mes_sin':[Mes_sin],'Mes_cos':[Mes_cos], 'dias_semana_sin':[dias_semana_sin], 'horario_sin':[horario_sin], 'horario_cos':[horario_cos]})
+        df = pd.DataFrame({'Município':[city], 'Latitude':[lat], 'Longitude':[lon], 'Condições Climáticas':[condition_por], 'Mes_sin':[Mes_sin],'Mes_cos':[Mes_cos], 'dias_semana_sin':[dias_semana_sin], 'horario_sin':[horario_sin], 'horario_cos':[horario_cos]})
         df.to_csv('predict.csv',index=False)
         df_proc = encoder.transform(df)
         y = classifier.predict_proba(df_proc)
