@@ -134,44 +134,44 @@ def app():#isolar todos os campos gráficos aqui dentro dessa função app
 
 
     # da data e horário busca na API a condição climática
-    # try:
-    Weather_but = st.sidebar.button('Calcular Risco')
-    key1='B8JYA2DGP8JEMDN3SH4N4XGTT'
-    key2='A6USW7ZJVKXS796M85TUD5JB7'
-    url_weather = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{},{}/{}?key={}".format(lat,lon,date_chosen,key2)
+    try:
+        Weather_but = st.sidebar.button('Calcular Risco')
+        key1='B8JYA2DGP8JEMDN3SH4N4XGTT'
+        key2='A6USW7ZJVKXS796M85TUD5JB7'
+        url_weather = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/{},{}/{}?key={}".format(lat,lon,date_chosen,key2)
 
-    def get_API_value():
-        response = urllib.request.urlopen(url_weather)
-        data = json.loads(response.read())
-        condition = data.get('days')[0].get('hours')[int(list_h[0])].get('conditions')
-        precip = data.get('days')[0].get('hours')[int(list_h[0])].get('precip')
-        return [condition,precip]
-    if Weather_but == True:
-        cond_precip= get_API_value()
-        if cond_precip[0] =='Partially cloudy':
-            condition_por = 'NUBLADO'
-            # image2 = Image.open('nublado.png')
-        elif cond_precip[0] == 'Overcast':
-            condition_por = 'NUBLADO'
-            # image2 = Image.open('nublado.png')
-        elif cond_precip[0] == 'Rain':
-            condition_por = 'CHUVA'
-            # image2 = Image.open('chuva.png')
-        elif cond_precip[0] == 'Clear':
-            condition_por = 'BOM'
-            # image2 = Image.open('bom.png')
-        elif cond_precip[0] == 'Rain, Partially cloudy':
-            condition_por = 'CHUVA'
-            # image2 = Image.open('chuva.png')
-        elif cond_precip[0] == 'Rain, Overcast':
-            condition_por = 'CHUVA'
-            # image2 = Image.open('chuva.png')    
+        def get_API_value():
+            response = urllib.request.urlopen(url_weather)
+            data = json.loads(response.read())
+            condition = data.get('days')[0].get('hours')[int(list_h[0])].get('conditions')
+            precip = data.get('days')[0].get('hours')[int(list_h[0])].get('precip')
+            return [condition,precip]
+        if Weather_but == True:
+            cond_precip= get_API_value()
+            if cond_precip[0] =='Partially cloudy':
+                condition_por = 'NUBLADO'
+                # image2 = Image.open('nublado.png')
+            elif cond_precip[0] == 'Overcast':
+                condition_por = 'NUBLADO'
+                # image2 = Image.open('nublado.png')
+            elif cond_precip[0] == 'Rain':
+                condition_por = 'CHUVA'
+                # image2 = Image.open('chuva.png')
+            elif cond_precip[0] == 'Clear':
+                condition_por = 'BOM'
+                # image2 = Image.open('bom.png')
+            elif cond_precip[0] == 'Rain, Partially cloudy':
+                condition_por = 'CHUVA'
+                # image2 = Image.open('chuva.png')
+            elif cond_precip[0] == 'Rain, Overcast':
+                condition_por = 'CHUVA'
+                # image2 = Image.open('chuva.png')    
 
-        with col2:   
-            # st.write('Condição do tempo: ',cond_precip[0])
-            st.write('Condição do tempo: ',condition_por)                 
-    # except:
-    #     pass
+            with col2:   
+                # st.write('Condição do tempo: ',cond_precip[0])
+                st.write('Condição do tempo: ',condition_por)                 
+    except:
+        pass
 
     #CRIANDO DF COM TODOS INPUTS e calculando proba
     try:
