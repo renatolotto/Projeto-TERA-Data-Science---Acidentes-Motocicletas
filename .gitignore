@@ -2,7 +2,6 @@
 df_acidentes_sp_motos_all.csv
 df_acidentes_sp_moto.csv
 08_EDA_conclusões.ipynb
-.png
 MODELAGEM_acidentes_moto_SP.ipynb
 Docker/dockerfile.txt
 .gitignore
@@ -12,7 +11,6 @@ Docker/dockerfile_example.txt
 RFECV.png
 predict.csv
 MODELAGEM_acidentes_moto_SP.ipynb
-logo3.PNG
 MODELAGEM_acidentes_moto_SP.ipynb
 05_Modeling_CORR.ipynb
 07_app_novo.py
