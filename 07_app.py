@@ -5,7 +5,7 @@ import datetime
 import urllib, json
 import joblib
 import googlemaps
-from PIL import Image
+# from PIL import Image
 from datetime import datetime
 
 
@@ -23,9 +23,9 @@ def app():#isolar todos os campos gráficos aqui dentro dessa função app
 
     st.set_page_config(layout='wide',page_title = "Motorcycle Risk Predictor - SP",page_icon=":vertical_traffic_light:")
 
-    image = Image.open('Images/logo3.jpg')
+    # image = Image.open('Images/logo3.jpg')
 
-    st.image(image)#,use_column_width=True
+    # st.image(image)#,use_column_width=True
     st.title('Avaliação de risco para motociclistas na grande São Paulo')
     # st.markdown('descrição do app')
     st.sidebar.title('Parâmetros de entrada')
