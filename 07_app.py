@@ -23,7 +23,7 @@ def app():#isolar todos os campos gráficos aqui dentro dessa função app
 
     st.set_page_config(layout='wide',page_title = "Motorcycle Risk Predictor - SP",page_icon=":vertical_traffic_light:")
 
-    image = Image.open('Images/logo3.png')
+    image = Image.open('logo3.png')
 
     st.image(image)#,use_column_width=True
     st.title('Avaliação de risco para motociclistas na grande São Paulo')

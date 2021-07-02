@@ -13,7 +13,7 @@ COPY requirements.txt ./
 COPY 07_app.py ./
 COPY Models/encoder_v0.joblib ./Models/
 COPY Models/classifier_v0.joblib ./Models/
-COPY Images/logo3.PNG ./Images/
+COPY logo3.PNG ./
 
 #instala as bibliotecas específicas na imagem
 RUN pip install -U pip
